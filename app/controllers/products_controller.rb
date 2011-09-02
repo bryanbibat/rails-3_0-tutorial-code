@@ -20,8 +20,7 @@ class ProductsController < ApplicationController
     @product = Product.new(params[:product])
 
     if @product.save
-      flash[:notice] = "Product has been successfully created."
-      redirect_to @product
+      redirect_to @product, :notice => "Product has been successfully created."
     else
       render :action => "new"
     end
@@ -30,8 +29,7 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    flash[:notice] = "Product was successfully deleted."
-    redirect_to products_path
+    redirect_to products_path, :notice => "Product was successfully deleted."
   end
 
 end
