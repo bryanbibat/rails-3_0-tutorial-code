@@ -15,7 +15,7 @@
     <th>Cost</th>
     <th>Stock</th>
   </tr>
-  <%= render({ :partial => "item", :collection => @products, :spacer_template => "hr" }) %>
+  <%= render :partial => "item", :collection => @products, :spacer_template => "hr" %>
 </table>
 
 <p><%= link_to "Create a new Product", new_product_path %></p>
