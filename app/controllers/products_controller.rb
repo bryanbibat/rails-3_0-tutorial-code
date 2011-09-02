@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_filter :check_if_aling_nena
 
   def index
     @products = Product.all
@@ -45,5 +46,11 @@ class ProductsController < ApplicationController
     @product.destroy
     redirect_to products_path, :notice => "Product was successfully deleted."
   end
+
+  private
+
+    def check_if_aling_nena
+      #checking here
+    end
 
 end
