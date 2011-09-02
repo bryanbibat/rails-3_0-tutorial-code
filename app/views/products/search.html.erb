@@ -1,5 +1,7 @@
 <h1>Listing Products</h1>
 
+<p>Displaying Products with name "<%= params[:name] %>"</p>
+
 <table>
   <tr>
     <th>Name</th>
@@ -18,3 +20,5 @@
     </tr>
   <% end %>
 </table>
+
+<p><%= link_to "Back to original list", products_path %></p>
