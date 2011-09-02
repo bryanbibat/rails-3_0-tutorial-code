@@ -1,5 +1,6 @@
 AlingnenaApp::Application.routes.draw do
-  get "products/show"
-
   resources :debts
+
+  match('products/:id' => 'products#show', :via => :get)
+
 end
