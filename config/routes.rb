@@ -3,5 +3,6 @@ AlingnenaApp::Application.routes.draw do
 
   match 'products' => 'products#index', :via => :get, :as => 'products'
   match 'products/:id' => 'products#show', :via => :get, :as => 'product'
+  match 'products/:id' => 'products#destroy', :via => :delete
 
 end
