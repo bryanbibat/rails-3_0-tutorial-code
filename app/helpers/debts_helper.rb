@@ -1,0 +1,2 @@
+module DebtsHelper
+end
