@@ -5,6 +5,7 @@
     <th>Name</th>
     <th>Item</th>
     <th>Amount</th>
+    <th>Remarks</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,6 +16,7 @@
     <td><%= debt.name %></td>
     <td><%= debt.item %></td>
     <td><%= debt.amount %></td>
+    <td><%= debt.remarks %></td>
     <td><%= link_to 'Show', debt %></td>
     <td><%= link_to 'Edit', edit_debt_path(debt) %></td>
     <td><%= link_to 'Destroy', debt, :confirm => 'Are you sure?', :method => :delete %></td>
