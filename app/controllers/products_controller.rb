@@ -17,12 +17,14 @@ class ProductsController < ApplicationController
   end
 
   def create
-    # create a Product based on submitted form
-    # save Product
-    # if save is successful
-    #   show new Product
-    # else
-    #   go back to current page and display error
+    @product = Product.new(params[:product])
+
+    if @product.save
+      flash[:notice] = "Product has been successfully created."
+      redirect_to @product
+    else
+      render :action => "new"
+    end
   end
 
   def destroy
