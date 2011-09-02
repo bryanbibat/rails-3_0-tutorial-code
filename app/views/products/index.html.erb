@@ -8,4 +8,13 @@
     <th>Stock</th>
   </tr>
 
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.description %></td>
+      <td><%= number_to_currency product.cost, :unit => 'PhP' %></td>
+      <td><%= product.stock %></td>
+    </tr>
+  <% end %>
+
 </table>
