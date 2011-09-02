@@ -12,6 +12,19 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def new
+    # create a dummy Product
+  end
+
+  def create
+    # create a Product based on submitted form
+    # save Product
+    # if save is successful
+    #   show new Product
+    # else
+    #   go back to current page and display error
+  end
+
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
