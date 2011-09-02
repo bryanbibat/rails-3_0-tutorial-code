@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_filter :check_if_aling_nena
+  before_filter :check_if_aling_nena, :except => [:index, :show, :search]
 
   def index
     @products = Product.all
@@ -50,7 +50,7 @@ class ProductsController < ApplicationController
   private
 
     def check_if_aling_nena
-      #checking here
+      redirect_to products_path, :notice => "You must be Aling Nena to access this page."
     end
 
 end
