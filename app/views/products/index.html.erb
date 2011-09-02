@@ -23,6 +23,7 @@
       <td><%= number_to_currency product.cost, :unit => 'PhP' %></td>
       <td><%= product.stock %></td>
       <td><%= link_to 'Show', product %></td>
+      <td><%= link_to 'Edit', edit_product_path(product) %></td>
     </tr>
   <% end %>
 
