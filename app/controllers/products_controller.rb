@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   end
 
   def new
-    # create a dummy Product
+    @product = Product.new
   end
 
   def create
