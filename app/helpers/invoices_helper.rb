@@ -1,7 +1,7 @@
 module InvoicesHelper
   def display_purchase(invoice)
     unless invoice.purchase.nil?
-      invoice.purchase.description
+      link_to invoice.purchase.description, invoice.purchase
     else
       "(no Purchase set)"
     end
