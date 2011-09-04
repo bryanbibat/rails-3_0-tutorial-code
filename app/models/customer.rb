@@ -2,6 +2,7 @@ class Customer < ActiveRecord::Base
   before_create :activate
 
   def destroy
+    self.active = false
   end
 
   private

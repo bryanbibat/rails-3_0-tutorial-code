@@ -20,7 +20,11 @@ describe Customer do
       customer.should_not be_destroyed
     end
 
-    pending "should set the customer as inactive"
+    it "should set the customer as inactive" do
+      customer = customers(:active)
+      customer.destroy
+      customer.should_not be_active
+    end
   end
 
 end
