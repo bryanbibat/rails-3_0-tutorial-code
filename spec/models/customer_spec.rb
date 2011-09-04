@@ -5,7 +5,11 @@ describe Customer do
     Customer.create!(:name => 'John', :active => false)   # will throw error on failure
   end
 
-  pending "should set the record as active on create"
+  it "should set the record as active on create" do
+    customer = Customer.create(:name => "name", :active => false)
+    customer.reload
+    customer.active.should eq true
+  end
 
   describe "when destroyed" do
     pending "should not delete the record from the database"
