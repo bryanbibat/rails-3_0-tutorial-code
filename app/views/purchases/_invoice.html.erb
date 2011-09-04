@@ -1,0 +1,9 @@
+<p>
+  <b>Invoice Reference Number:</b>
+  <%= link_to @purchase.invoice.reference_number,
+        edit_purchase_invoice_path(@purchase) %>
+</p>
+<p>
+  <%= link_to "Delete Invoice", purchase_invoice_path(@purchase),
+        :confirm => "Are you sure?", :method => :delete %>
+</p>
