@@ -13,18 +13,17 @@ describe Customer do
 
   describe "when destroyed" do
     fixtures :customers
+    before(:each) do
+      @customer = customers(:active)
+      @customer.destroy
+    end
 
     it "should not delete the record from the database" do
-      customer = customers(:active)
-      customer.destroy
-      customer.should_not be_destroyed
+      @customer.should_not be_destroyed
     end
 
     it "should set the customer as inactive" do
-      customer = customers(:active)
-      customer.destroy
-      customer.should_not be_active
+      @customer.should_not be_active
     end
   end
-
 end
