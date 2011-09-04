@@ -33,7 +33,11 @@ describe CustomersController do
     end
 
     describe "when the record is inactive" do
-      pending "redirects to the list"
+      it "redirects to the list" do
+        Customer.stub(:find).with("37") { mock_customer(:active? => false) }
+        get :show, :id => "37"
+        response.should redirect_to(customers_url)
+      end
       pending "displays a message"
     end
   end

@@ -15,9 +15,15 @@ class CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @customer }
+    if @customer.active?
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @customer }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to customers_url }
+      end
     end
   end
 
