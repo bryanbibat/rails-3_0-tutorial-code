@@ -12,7 +12,14 @@ class MessagesController < ApplicationController
   end
 
   def message_table
-    render :partial => Message.order("created_at DESC")
+    respond_to do |format|
+      format.js do
+        render :update do |page|
+          page.replace_html :message_list, :partial => Message.order("created_at DESC")
+        end
+      end
+      format.html { render :partial => Message.order("created_at DESC") }
+    end
   end
 
   # POST /messages
