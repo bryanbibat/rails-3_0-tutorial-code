@@ -36,11 +36,7 @@ class MessagesController < ApplicationController
         @messages = Message.order("created_at DESC")
         format.html { render :action => "index" }
         format.xml  { render :xml => @message.errors, :status => :unprocessable_entity }
-        format.js do
-          render :update do |page|
-            page.replace_html :notice, 'There was an error in creating the message.'
-          end
-        end
+        format.js { render :text => "$('#notice').show().html('There was an error in creating the message.')" }
       end
     end
   end

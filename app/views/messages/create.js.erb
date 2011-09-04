@@ -1,0 +1,4 @@
+$("#message_list").html("<%= escape_javascript(
+  render :partial => Message.all(:order => "created_at DESC") ) %>");
+$("#notice").show().html("Message was successfully created.").delay(20000).fadeOut("slow");
+$("#new_message")[0].reset();
