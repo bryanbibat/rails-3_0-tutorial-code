@@ -19,6 +19,10 @@
     <%= f.label :delivered_at %><br />
     <%= f.date_select :delivered_at %>
   </div>
+  <div class="field">
+    <%= f.label :supplier_id, "Supplier" %><br />
+    <%= f.collection_select :supplier_id, Supplier.all, :id, :name, :prompt => true %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

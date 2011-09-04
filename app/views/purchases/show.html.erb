@@ -10,6 +10,11 @@
   <%= @purchase.delivered_at %>
 </p>
 
+<p>
+  <b>Supplier:</b>
+  <%= @purchase.display_supplier %>
+</p>
+
 <%= display_invoice @purchase %>
 
 <%= link_to 'Edit', edit_purchase_path(@purchase) %> |
