@@ -12,7 +12,14 @@ describe Customer do
   end
 
   describe "when destroyed" do
-    pending "should not delete the record from the database"
+    fixtures :customers
+
+    it "should not delete the record from the database" do
+      customer = customers(:active)
+      customer.destroy
+      customer.should_not be_destroyed
+    end
+
     pending "should set the customer as inactive"
   end
 

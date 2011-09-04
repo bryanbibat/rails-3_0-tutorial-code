@@ -1,0 +1,7 @@
+active:
+  name: Active Customer
+  active: true
+
+inactive:
+  name: Inactive Customer
+  active: false
