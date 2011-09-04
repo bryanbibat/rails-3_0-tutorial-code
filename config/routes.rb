@@ -1,5 +1,9 @@
 AlingnenaApp::Application.routes.draw do
-  resources :messages
+  resources :messages do
+    collection do
+      get 'message_table'
+    end
+  end
 
   resources :suppliers
 

@@ -1,0 +1,5 @@
+<li>
+  <strong><%= message.author %> said</strong>
+  <em>(<%= time_ago_in_words(message.created_at) %> ago)</em>:
+  <%= message.message %>
+</li>

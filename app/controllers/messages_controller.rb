@@ -11,6 +11,10 @@ class MessagesController < ApplicationController
     end
   end
 
+  def message_table
+    render :partial => Message.order("created_at DESC")
+  end
+
   # POST /messages
   # POST /messages.xml
   def create
