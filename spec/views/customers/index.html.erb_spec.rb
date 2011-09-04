@@ -20,5 +20,9 @@ describe "customers/index.html.erb" do
     rendered.should have_selector("tr>td", :content => false.to_s, :count => 2)
   end
 
-  pending "does not display the Active field"
+  it "does not display the Active field" do
+    render
+    rendered.should_not have_selector("tr>th", :content => "Active")
+    rendered.should_not have_selector("tr>td", :content => false.to_s, :count => 2)
+  end
 end
