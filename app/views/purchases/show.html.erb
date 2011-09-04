@@ -41,5 +41,12 @@
 
 <p><%= link_to "New Line Item", new_purchase_line_item_path(@purchase) %></p>
 
+<h2>Related Products</h2>
+<ul>
+  <% @purchase.products.each do |product| %>
+    <li><%= link_to product.name, product %></li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_purchase_path(@purchase) %> |
 <%= link_to 'Back', purchases_path %>
