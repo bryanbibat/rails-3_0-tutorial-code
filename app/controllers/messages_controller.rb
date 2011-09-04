@@ -33,10 +33,14 @@ class MessagesController < ApplicationController
         format.xml  { render :xml => @message, :status => :created, :location => @message }
         format.js do
           render :update do |page|
+            page.show 'notice'
             page.replace_html :message_list,
               :partial => Message.all(:order => "created_at DESC")
             page.replace_html :notice, 'Message was successfully created.'
             page[:new_message].reset
+            page.delay(20) do
+              page.visual_effect :fade, 'notice'
+            end
           end
         end
       else
