@@ -7,3 +7,12 @@ tl:
     product:
       header:
         new: "Bagong Produkto"
+  activerecord:
+    models:
+      product: "Produkto"
+    attributes:
+      product:
+        name: "Pangalan"
+        description: "Paglalarawan"
+        cost: "Presyo"
+        stock: "Dami"
