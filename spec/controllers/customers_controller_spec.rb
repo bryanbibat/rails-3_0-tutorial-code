@@ -38,7 +38,11 @@ describe CustomersController do
         get :show, :id => "37"
         response.should redirect_to(customers_url)
       end
-      pending "displays a message"
+      it "displays a message" do
+        Customer.stub(:find).with("37") { mock_customer(:active? => false) }
+        get :show, :id => "37"
+        flash[:notice].should eq "Record does not exist"
+      end
     end
   end
 
