@@ -1,4 +1,6 @@
 AlingnenaApp::Application.routes.draw do
+  resources :customers
+
   resources :messages do
     collection do
       get 'message_table'
