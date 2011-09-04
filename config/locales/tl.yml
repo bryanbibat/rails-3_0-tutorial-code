@@ -1,0 +1,9 @@
+tl:
+  views:
+    button:
+      create: "Likhain"
+    link:
+      back: "Bumalik"
+    product:
+      header:
+        new: "Bagong Produkto"
