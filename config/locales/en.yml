@@ -3,3 +3,11 @@
 
 en:
   hello: "Hello world"
+  views:
+    button:
+      create: "Create"
+    link:
+      back: "Back"
+    product:
+      header:
+        new: "New Product"
