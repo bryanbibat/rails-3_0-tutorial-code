@@ -12,7 +12,7 @@ describe CustomersController do
 
   describe "GET index" do
     it "assigns all customers as @customers" do
-      Customer.stub(:all) { [mock_customer] }
+      Customer.stub(:find_all_by_active).with(true) { [mock_customer] }
       get :index
       assigns(:customers).should eq([mock_customer])
     end
