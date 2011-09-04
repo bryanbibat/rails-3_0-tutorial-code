@@ -17,7 +17,10 @@ describe CustomersController do
       assigns(:customers).should eq([mock_customer])
     end
 
-    pending "should only retrieve active customers"
+    it "should only retrieve active customers" do
+      Customer.should_receive(:find_all_by_active).with(true) { [mock_customer] }
+      get :index
+    end
   end
 
   describe "GET show" do
