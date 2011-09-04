@@ -17,6 +17,7 @@ tl:
         cost: "Presyo"
         stock: "Dami"
   errors:
+    format: "%{message}"
     template:
       header:
         one: "May isang mali na humahadlang sa pag-save ng %{model}"
