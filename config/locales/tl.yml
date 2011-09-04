@@ -16,3 +16,10 @@ tl:
         description: "Paglalarawan"
         cost: "Presyo"
         stock: "Dami"
+  errors:
+    template:
+      header:
+        one: "May isang mali na humahadlang sa pag-save ng %{model}"
+        other: "May %{count} mali na humahadlang sa pag-save ng %{model}"
+    messages:
+      blank: "Dapat ipuno ang %{attribute}"
