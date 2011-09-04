@@ -1,4 +1,23 @@
 tl:
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%b %d"
+      long: "ika-%d ng %B, %Y"
+    day_names: [Linggo, Lunes, Martes, Miyerkules, Huwebes, Biyernes, Sabado]
+    abbr_day_names: [Lin, Lun, Mar, Mye, Huw, Bye, Sab]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, Enero, Pebrero, Marso, Abril, Mayo, Hunyo, Hulyo, Agosto, Setyembre, Oktubre, Nobyembre, Disyembre]
+    abbr_month_names: [~, Ene, Peb, Mar, Abr, May, Hun, Hul, Ago, Set, Okt, Nob, Dis]
+  time:
+    formats:
+      default: "ika-%d ng %B, %Y %I:%M:%S %p"
+      short: "%d %b %H:%M"
+      long: "ika-%d ng %B, %Y %I:%M %p"
+    am: "AM"
+    pm: "PM"
+
   views:
     button:
       create: "Likhain"
