@@ -11,11 +11,11 @@
 </p>
 <p>
   <b><%= label(:product, :cost) %>:</b>
-  <%= number_to_currency @product.cost, :unit => "PhP" %>
+  <%= number_to_currency @product.cost %>
 </p>
 <p>
   <b><%= label(:product, :stock) %>:</b>
-  <%= @product.stock %>
+  <%= number_with_delimiter @product.stock %>
 </p>
 <p>
   <b><%= label(:product, :created_at) %>:</b>
