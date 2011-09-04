@@ -17,5 +17,29 @@
 
 <%= display_invoice @purchase %>
 
+<h2>Line Items</h2>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th>Cost</th>
+  </tr>
+<% @purchase.line_items.each do |item| %>
+  <tr>
+    <td><%= item.product.name %></td>
+    <td><%= item.quantity %></td>
+    <td><%= number_to_currency item.cost, :unit => "PhP" %></td>
+    <td><%= link_to "Edit", edit_purchase_line_item_path(@purchase, item) %></td>
+    <td>
+      <%= link_to "Destroy", purchase_line_item_path(@purchase, item),
+            :confirm => "Are you sure?", :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<p><%= link_to "New Line Item", new_purchase_line_item_path(@purchase) %></p>
+
 <%= link_to 'Edit', edit_purchase_path(@purchase) %> |
 <%= link_to 'Back', purchases_path %>
