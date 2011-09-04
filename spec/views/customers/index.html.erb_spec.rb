@@ -19,4 +19,6 @@ describe "customers/index.html.erb" do
     rendered.should have_selector("tr>td", :content => "Name".to_s, :count => 2)
     rendered.should have_selector("tr>td", :content => false.to_s, :count => 2)
   end
+
+  pending "does not display the Active field"
 end

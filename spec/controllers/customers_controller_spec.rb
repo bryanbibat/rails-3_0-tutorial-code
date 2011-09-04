@@ -16,13 +16,22 @@ describe CustomersController do
       get :index
       assigns(:customers).should eq([mock_customer])
     end
+
+    pending "should only retrieve active customers"
   end
 
   describe "GET show" do
-    it "assigns the requested customer as @customer" do
-      Customer.stub(:find).with("37") { mock_customer }
-      get :show, :id => "37"
-      assigns(:customer).should be(mock_customer)
+    describe "when the record is active" do
+      it "assigns the requested customer as @customer" do
+        Customer.stub(:find).with("37") { mock_customer(:active? => true) }
+        get :show, :id => "37"
+        assigns(:customer).should be(mock_customer)
+      end
+    end
+
+    describe "when the record is inactive" do
+      pending "redirects to the list"
+      pending "displays a message"
     end
   end
 
