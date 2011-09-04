@@ -1,83 +1,45 @@
 class InvoicesController < ApplicationController
-  # GET /invoices
-  # GET /invoices.xml
-  def index
-    @invoices = Invoice.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @invoices }
-    end
-  end
-
-  # GET /invoices/1
-  # GET /invoices/1.xml
   def show
-    @invoice = Invoice.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @invoice }
-    end
+    # we'll integrate the Invoice details in the Show Purchase screen
+    redirect_to purchase_path(params[:purchase_id])
   end
 
-  # GET /invoices/new
-  # GET /invoices/new.xml
   def new
-    @invoice = Invoice.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @invoice }
-    end
+    @purchase = Purchase.find(params[:purchase_id])
+    @invoice = @purchase.build_invoice
   end
 
-  # GET /invoices/1/edit
   def edit
-    @invoice = Invoice.find(params[:id])
+    @purchase = Purchase.find(params[:purchase_id])
+    @invoice = @purchase.invoice
   end
 
-  # POST /invoices
-  # POST /invoices.xml
   def create
-    @invoice = Invoice.new(params[:invoice])
+    @purchase = Purchase.find(params[:purchase_id])
+    @invoice = @purchase.build_invoice(params[:invoice])
 
-    respond_to do |format|
-      if @invoice.save
-        format.html { redirect_to(@invoice, :notice => 'Invoice was successfully created.') }
-        format.xml  { render :xml => @invoice, :status => :created, :location => @invoice }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @invoice.errors, :status => :unprocessable_entity }
-      end
+    if @invoice.save
+      redirect_to @purchase, :notice => 'Invoice was successfully created.'
+    else
+      render :action => "new"
     end
   end
 
-  # PUT /invoices/1
-  # PUT /invoices/1.xml
   def update
-    @invoice = Invoice.find(params[:id])
+    @purchase = Purchase.find(params[:purchase_id])
+    @invoice = @purchase.invoice
 
-    respond_to do |format|
-      if @invoice.update_attributes(params[:invoice])
-        format.html { redirect_to(@invoice, :notice => 'Invoice was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @invoice.errors, :status => :unprocessable_entity }
-      end
+    if @invoice.update_attributes(params[:invoice])
+      redirect_to @purchase, :notice => 'Invoice was successfully updated.'
+    else
+      render :action => "edit"
     end
   end
 
-  # DELETE /invoices/1
-  # DELETE /invoices/1.xml
   def destroy
-    @invoice = Invoice.find(params[:id])
+    @purchase = Purchase.find(params[:purchase_id])
+    @invoice = @purchase.invoice
     @invoice.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(invoices_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to @purchase
   end
 end
