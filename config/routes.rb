@@ -1,4 +1,6 @@
 AlingnenaApp::Application.routes.draw do
+  resources :messages
+
   resources :suppliers
 
   resources :purchases do
